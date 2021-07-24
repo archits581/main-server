@@ -16,7 +16,8 @@ app.use(cors(corsOptions));
 // Setting port and database URL
 const PORT = process.env.PORT || 8080;
 const MONGO_DB_URL =
-  process.env.MONGO_DB_URL || "mongodb://admin:admin@10.128.0.207:27017/projectDB";
+  process.env.MONGO_DB_URL ||
+  "mongodb://admin:admin@10.128.0.207:27017/projectDB";
 
 mongoose
   .connect(MONGO_DB_URL, {
