@@ -147,35 +147,61 @@ router.get("/processes/serverList", async (req, res) => {
 });
 
 router.post("/populate", async (req, res) => {
-  let newUser = {
-    username: "Admin",
-    password: "$2b$05$S1IMnHLOM81YTEd4IUMkFOqdUEp3RxcNodkWt9LgAQ/3Xx9tLzR7i",
-    designationId: "1",
-  };
-  let userObject = new users(newUser);
-  userObject.save((err, user) => {
-    if (err) {
-      res.status(503).send({ msg: err });
-    }
-  });
-  let p1 = {
-    designationIds: [1, 2, 3],
-    processName: "p1.py",
+  // let newUser = {
+  //   username: "Admin",
+  //   password: "$2b$05$S1IMnHLOM81YTEd4IUMkFOqdUEp3RxcNodkWt9LgAQ/3Xx9tLzR7i",
+  //   designationId: "1",
+  // };
+  // let userObject = new users(newUser);
+  // userObject.save((err, user) => {
+  //   if (err) {
+  //     res.status(503).send({ msg: err });
+  //   }
+  // });
+  // let p1 = {
+  //   designationIds: [1, 2, 3],
+  //   processName: "p1.py",
+  // };
+
+  // let p2 = {
+  //   designationIds: [1, 2],
+  //   processName: "p2.py",
+  // };
+
+  // let p3 = {
+  //   designationIds: [1, 2, 3],
+  //   processName: "perl1.pl",
+  // };
+
+  // processes.create(p1);
+  // processes.create(p2);
+  // processes.create(p3);
+
+  let s1 = {
+    serverName: "server1",
+    ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
+    port: "8080",
+    processIds: [
+      "60fc04dafb26a9001b317a8a",
+      "60fc04dafb26a9001b317a8c",
+      "60fc04dafb26a9001b317a8b",
+    ],
   };
 
-  let p2 = {
-    designationIds: [1, 2],
-    processName: "p2.py",
+  let s2 = {
+    serverName: "server2",
+    ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
+    port: "8080",
+    processIds: [
+      "60fc04dafb26a9001b317a8a",
+      "60fc04dafb26a9001b317a8c",
+      "60fc04dafb26a9001b317a8b",
+    ],
   };
 
-  let p3 = {
-    designationIds: [1, 2, 3],
-    processName: "perl1.pl",
-  };
+  servers.create(s1);
+  servers.create(s2);
 
-  processes.create(p1);
-  processes.create(p2);
-  processes.create(p3);
   res.status(200).send({ msg: "Populated database successfully" });
 });
 
