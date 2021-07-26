@@ -52,10 +52,10 @@ router.post("/processes/start", verifyToken, (req, res) => {
     axios
       .post(`http://${serverIpAddress}/api/internal/processes/start`, {
         pname: processName,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   "Access-Control-Allow-Origin": "*",
+        // },
       })
       .then((response) => {
         res.send("Process started sucessfully.");
