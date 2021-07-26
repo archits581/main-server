@@ -177,31 +177,50 @@ router.post("/populate", async (req, res) => {
   // processes.create(p2);
   // processes.create(p3);
 
-  let s1 = {
-    serverName: "server1",
-    ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
-    port: "8080",
-    processIds: [
-      "60fc04dafb26a9001b317a8a",
-      "60fc04dafb26a9001b317a8c",
-      "60fc04dafb26a9001b317a8b",
-    ],
+  // let s1 = {
+  //   serverName: "server1",
+  //   ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
+  //   port: "8080",
+  //   processIds: [
+  //     "60fc04dafb26a9001b317a8a",
+  //     "60fc04dafb26a9001b317a8c",
+  //     "60fc04dafb26a9001b317a8b",
+  //   ],
+  // };
+
+  // let s2 = {
+  //   serverName: "server2",
+  //   ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
+  //   port: "8080",
+  //   processIds: [
+  //     "60fc04dafb26a9001b317a8a",
+  //     "60fc04dafb26a9001b317a8c",
+  //     "60fc04dafb26a9001b317a8b",
+  //   ],
+  // };
+
+  // servers.create(s1);
+  // servers.create(s2);
+
+  let i1 = {
+    startTime: "2021-07-19T11:13:00.000Z",
+    endTime: "2021-07-19T11:15:00.000Z",
+    osId: 3338,
+    processName: "p2",
+    serverId: "60fd8f33a76202001c62e7a0",
+    status: "Completed",
+  };
+  let i2 = {
+    startTime: "2021-07-19T11:17:00.000Z",
+    endTime: "2021-07-19T11:19:00.000Z",
+    osId: 3340,
+    processName: "p1",
+    serverId: "60fd8f33a76202001c62e7a0",
+    status: "Completed",
   };
 
-  let s2 = {
-    serverName: "server2",
-    ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
-    port: "8080",
-    processIds: [
-      "60fc04dafb26a9001b317a8a",
-      "60fc04dafb26a9001b317a8c",
-      "60fc04dafb26a9001b317a8b",
-    ],
-  };
-
-  servers.create(s1);
-  servers.create(s2);
-
+  instances.create(i1);
+  instances.create(i2);
   res.status(200).send({ msg: "Populated database successfully" });
 });
 
